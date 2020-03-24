@@ -32,7 +32,7 @@ public class FailureKind extends AbstractTreeNode {
     FailingMember failure = failures.get(err.description);
     if (failure == null) {
       for (String c : err.failingClassNames) {
-        failure = new FailingMember(c, err.testCode, err.junitFile);
+        failure = new FailingMember(c, err.testCode, err.junitFile.toFile());
         failures.put(c, failure);
       }
     }

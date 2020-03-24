@@ -32,6 +32,7 @@ import org.eclipse.jdt.launching.VMRunnerConfiguration;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.dialogs.MessageDialogWithToggle;
+import org.eclipse.jface.window.Window;
 import org.eclipse.osgi.util.NLS;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
@@ -165,7 +166,7 @@ public class RandoopLaunchDelegate extends AbstractJavaLaunchConfigurationDelega
               .getWorkbench().getDisplay().getActiveShell(), "Randoop", message, yesNoQuestion,
               toggleQuestion, resourcesInQuestion);
           
-          okToProceed.setValue(d.open() == Dialog.OK);
+          okToProceed.setValue(d.open() == Window.OK);
           deleteFiles.setValue(d.getToggleState());
         }
       });
@@ -218,8 +219,8 @@ public class RandoopLaunchDelegate extends AbstractJavaLaunchConfigurationDelega
     // Create VM config
     VMRunnerConfiguration runConfig = new VMRunnerConfiguration(mainTypeName, classpath);
 
-    runConfig.setVMArguments((String[]) vmArguments.toArray(new String[vmArguments.size()]));
-    runConfig.setProgramArguments((String[]) programArguments.toArray(new String[programArguments.size()]));
+    runConfig.setVMArguments(vmArguments.toArray(new String[vmArguments.size()]));
+    runConfig.setProgramArguments(programArguments.toArray(new String[programArguments.size()]));
     runConfig.setEnvironment(getEnvironment(configuration));
     runConfig.setVMSpecificAttributesMap(getVMSpecificAttributesMap(configuration));
     runConfig.setBootClassPath(getBootpath(configuration));
@@ -302,20 +303,30 @@ public class RandoopLaunchDelegate extends AbstractJavaLaunchConfigurationDelega
     programArguments.add("--randomseed=" + args.getRandomSeed());//$NON-NLS-1$
     programArguments.add("--maxsize=" + args.getMaxTestSize());//$NON-NLS-1$
     programArguments.add("--usethreads=" + args.getUseThreads());//$NON-NLS-1$
-    programArguments.add("--timeout=" + args.getThreadTimeout());//$NON-NLS-1$
+    // AGprogramArguments.add("--timeout=" + args.getThreadTimeout());//$NON-NLS-1$
+    programArguments.add("--time-limit=" + args.getThreadTimeout());//$NON-NLS-1$
     programArguments.add("--forbid-null=" + !args.getUseNull());//$NON-NLS-1$
     programArguments.add("--null-ratio=" + args.getNullRatio());//$NON-NLS-1$
-    programArguments.add("--inputlimit=" + args.getInputLimit());//$NON-NLS-1$
-    programArguments.add("--timelimit=" + args.getTimeLimit());//$NON-NLS-1$
+    // AG questo non c'è più 
+    //programArguments.add("--inputlimit=" + args.getInputLimit());//$NON-NLS-1$
+    programArguments.add("--generated-limit=" + args.getInputLimit());//$NON-NLS-1$
+    // AG non c'è più programArguments.add("--time-limit=" + args.getTimeLimit());//$NON-NLS-1$
     programArguments.add("--junit-output-dir=" + launchResources.getOutputLocation().toOSString());//$NON-NLS-1$
     programArguments.add("--junit-package-name=" + args.getJUnitPackageName());//$NON-NLS-1$
-    programArguments.add("--junit-classname=" + args.getJUnitClassName());//$NON-NLS-1$
-    programArguments.add("--output-tests=" + args.getTestKinds());//$NON-NLS-1$
-    programArguments.add("--outputlimit=" + args.getMaxTestsWritten());//$NON-NLS-1$
-    programArguments.add("--testsperfile=" + args.getMaxTestsPerFile());//$NON-NLS-1$
+    // AG questo non eesiste più 
+    // TODO delete also in dialog
+    // programArguments.add("--junit-classname=" + args.getJUnitClassName());//$NON-NLS-1$
+    // AG no loger exists TODO remove from dialog
+    // programArguments.add("--output-tests=" + args.getTestKinds());//$NON-NLS-1$
+    programArguments.add("--output-limit=" + args.getMaxTestsWritten());//$NON-NLS-1$
+    // AG no loger exists TODO remove from dialog
+    //programArguments.add("--testsperfile=" + args.getMaxTestsPerFile());//$NON-NLS-1$
     programArguments.add("--methodlist=" + launchResources.getMethodFile().getAbsolutePath());//$NON-NLS-1$
-    programArguments.add("--comm-port=" + fPort); //$NON-NLS-1$
-    programArguments.add("--noprogressdisplay"); //$NON-NLS-1$
+    // AG no loger exists TODO remove from dialog
+    // programArguments.add("--comm-port=" + fPort); //$NON-NLS-1$
+    // programArguments.add("--noprogressdisplay"); //$NON-NLS-1$
+    // AG added
+    programArguments.add("--progressdisplay=false"); //$NON-NLS-1$
     // programArguments.add("--log=randooplog.txt"); // XXX remove
   }
 

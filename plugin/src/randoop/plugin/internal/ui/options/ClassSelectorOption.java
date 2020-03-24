@@ -71,7 +71,6 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
-import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 import org.eclipse.ui.dialogs.ISelectionStatusValidator;
@@ -168,7 +167,7 @@ public class ClassSelectorOption extends Option implements IOptionChangeListener
     }
   
     public TreeNode[] getRoots() {
-      return (TreeNode[]) fRoots.toArray(new TreeNode[fRoots.size()]);
+      return fRoots.toArray(new TreeNode[fRoots.size()]);
     }
     
     public void removeAll() {
@@ -252,7 +251,7 @@ public class ClassSelectorOption extends Option implements IOptionChangeListener
     }
     
     public TreeNode[] getChildren() {
-      return (TreeNode[]) fChildren.toArray(new TreeNode[fChildren.size()]);
+      return fChildren.toArray(new TreeNode[fChildren.size()]);
     }
     
     public void removeAllChildren() {
@@ -695,7 +694,7 @@ public class ClassSelectorOption extends Option implements IOptionChangeListener
               elements.addAll(Arrays.asList(pfrs));
             }
             
-            IJavaElement[] elementArray = (IJavaElement[]) elements.toArray(new IJavaElement[elements.size()]);
+            IJavaElement[] elementArray = elements.toArray(new IJavaElement[elements.size()]);
             IJavaSearchScope searchScope = SearchEngine.createJavaSearchScope(elementArray);
             handleSearchButtonSelected(searchScope);
           }
@@ -1061,7 +1060,7 @@ public class ClassSelectorOption extends Option implements IOptionChangeListener
           cpentries.add((IClasspathEntry) obj);
         }
       }
-      return (IClasspathEntry[]) cpentries.toArray(new IClasspathEntry[cpentries.size()]);
+      return cpentries.toArray(new IClasspathEntry[cpentries.size()]);
     }
     return null;
   }
@@ -1140,11 +1139,11 @@ public class ClassSelectorOption extends Option implements IOptionChangeListener
             IPackageFragment pf = pfr.getPackageFragment(packageName);
 
             if (JavaConventions.validateClassFileName(fileName,
-                IConstants.DEFAULT_COMPLIANCE_LEVEL, IConstants.DEFAULT_SOURCE_LEVEL).isOK()) { //$NON-NLS-1$//$NON-NLS-2$
+                IConstants.DEFAULT_COMPLIANCE_LEVEL, IConstants.DEFAULT_SOURCE_LEVEL).isOK()) { 
               IClassFile cf = pf.getClassFile(fileName);
               collectTypes(cf, types);
             } else if (JavaConventions.validateCompilationUnitName(fileName,
-                IConstants.DEFAULT_COMPLIANCE_LEVEL, IConstants.DEFAULT_SOURCE_LEVEL).isOK()) { //$NON-NLS-1$//$NON-NLS-2$
+                IConstants.DEFAULT_COMPLIANCE_LEVEL, IConstants.DEFAULT_SOURCE_LEVEL).isOK()) { 
               ICompilationUnit cu = pf.getCompilationUnit(fileName);
               collectTypes(cu, types);
             }

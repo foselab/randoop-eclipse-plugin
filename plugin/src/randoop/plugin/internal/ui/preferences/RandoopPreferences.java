@@ -1,7 +1,6 @@
 package randoop.plugin.internal.ui.preferences;
 
 import org.eclipse.core.runtime.preferences.AbstractPreferenceInitializer;
-import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.jface.preference.IPreferenceStore;
 
 import randoop.plugin.RandoopPlugin;

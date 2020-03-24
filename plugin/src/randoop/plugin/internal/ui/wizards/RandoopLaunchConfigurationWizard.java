@@ -9,9 +9,7 @@ import java.util.Set;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ProjectScope;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.preferences.IScopeContext;
-import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jface.preference.IPreferenceStore;
@@ -22,7 +20,6 @@ import org.osgi.service.prefs.BackingStoreException;
 import org.osgi.service.prefs.Preferences;
 
 import randoop.plugin.RandoopPlugin;
-import randoop.plugin.internal.core.RandoopStatus;
 import randoop.plugin.internal.core.launching.IRandoopLaunchConfigurationConstants;
 import randoop.plugin.internal.core.launching.RandoopArgumentCollector;
 import randoop.plugin.internal.ui.preferences.RandoopPreferences;
@@ -86,7 +83,7 @@ public class RandoopLaunchConfigurationWizard extends Wizard {
       case RandoopPreferences.PROJECT:
         IProject project = fJavaProject.getProject();
         IScopeContext projectScope = new ProjectScope(project);
-        Preferences prefs = (Preferences) projectScope.getNode(RandoopPlugin.getPluginId());
+        Preferences prefs = projectScope.getNode(RandoopPlugin.getPluginId());
         
         setConfigAttribute(prefs, IRandoopLaunchConfigurationConstants.ATTR_RANDOM_SEED, IRandoopLaunchConfigurationConstants.DEFAULT_RANDOM_SEED);
         setConfigAttribute(prefs, IRandoopLaunchConfigurationConstants.ATTR_MAXIMUM_TEST_SIZE, IRandoopLaunchConfigurationConstants.DEFAULT_MAXIMUM_TEST_SIZE);
@@ -165,7 +162,7 @@ public class RandoopLaunchConfigurationWizard extends Wizard {
       case RandoopPreferences.PROJECT:
         IProject project = fJavaProject.getProject();
         IScopeContext projectScope = new ProjectScope(project);
-        Preferences prefs = (Preferences) projectScope.getNode(RandoopPlugin
+        Preferences prefs = projectScope.getNode(RandoopPlugin
             .getPluginId());
         
         setValueFromConfig(prefs, IRandoopLaunchConfigurationConstants.ATTR_RANDOM_SEED, IRandoopLaunchConfigurationConstants.DEFAULT_RANDOM_SEED);

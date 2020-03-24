@@ -74,7 +74,7 @@ public class RandoopClasspathFixProposal extends ClasspathFixProposal {
       
       
       // Convert newEntries to an array
-      IClasspathEntry[] newCPEntries = (IClasspathEntry[]) newEntries.toArray(new IClasspathEntry[newEntries.size()]);
+      IClasspathEntry[] newCPEntries = newEntries.toArray(new IClasspathEntry[newEntries.size()]);
       
       Change newClasspathChange = newClasspathChange(fProject, newCPEntries, fProject.getOutputLocation());
       if (newClasspathChange != null) {

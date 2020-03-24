@@ -19,7 +19,6 @@ import randoop.plugin.tests.WorkspaceManager;
 import randoop.runtime.ClosingStream;
 import randoop.runtime.CreatedJUnitFile;
 import randoop.runtime.IMessage;
-import randoop.runtime.PercentDone;
 import randoop.runtime.RandoopFinished;
 import randoop.runtime.RandoopStarted;
 
@@ -42,13 +41,13 @@ public class MessageReceiverTest {
     	  fStartMessage = m;
       } else if (m instanceof RandoopFinished) {
     	  fReceivedLast = true;
-      } else if (m instanceof PercentDone) {
+ /*     } else if (m instanceof PercentDone) {
         Assert.assertNotNull("RandoopStarted message must be received before PercentDone", fStartMessage);
         Assert.assertFalse("PercentDone message must not be received after RandoopFinished", fReceivedLast);
     	  
     	  double pDone = ((PercentDone)m).getPercentDone();
     	  Assert.assertTrue("Percent done cannot decrease", fLastPercentDone < pDone);
-    	  fLastPercentDone = pDone;
+    	  fLastPercentDone = pDone;*/
       } else if (m instanceof CreatedJUnitFile) {
         CreatedJUnitFile fileCreatedMsg = (CreatedJUnitFile) m;
         

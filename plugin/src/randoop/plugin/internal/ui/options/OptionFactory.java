@@ -411,7 +411,8 @@ public class OptionFactory {
       return IRandoopLaunchConfigurationConstants.DEFAULT_THREAD_TIMEOUT;
     }
 
-    public void setEnabled(boolean enabled) {
+    @Override
+	public void setEnabled(boolean enabled) {
       if (fText != null) {
         fText.setEnabled(enabled);
       }
@@ -466,7 +467,8 @@ public class OptionFactory {
       return IRandoopLaunchConfigurationConstants.DEFAULT_NULL_RATIO;
     }
 
-    public void setEnabled(boolean enabled) {
+    @Override
+	public void setEnabled(boolean enabled) {
       if (fText != null) {
         fText.setEnabled(enabled);
       }

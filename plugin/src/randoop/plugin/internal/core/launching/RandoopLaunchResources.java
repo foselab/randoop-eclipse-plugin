@@ -29,7 +29,6 @@ import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.core.Signature;
 
-import randoop.StatementKinds;
 import randoop.plugin.RandoopPlugin;
 import randoop.plugin.internal.core.RandoopCoreUtil;
 import randoop.plugin.internal.ui.MessageUtil;

@@ -11,7 +11,6 @@ import org.eclipse.swt.widgets.Text;
 
 import randoop.plugin.internal.ui.SWTFactory;
 import randoop.plugin.internal.ui.options.ClassSelectorOption;
-import randoop.plugin.internal.ui.options.InitRoutineSelectorOption;
 import randoop.plugin.internal.ui.options.JUnitTestClassNameOption;
 import randoop.plugin.internal.ui.options.OutputDirectoryOption;
 import randoop.plugin.internal.ui.options.ProjectOption;

@@ -554,7 +554,7 @@ public class RandoopArgumentCollector {
   private static List<String> getAttribute(ILaunchConfiguration config,
       String attributeName, List<String> defaultValue) {
     try {
-      return (List<String>) config.getAttribute(attributeName, defaultValue);
+      return config.getAttribute(attributeName, defaultValue);
     } catch (CoreException ce) {
       return defaultValue;
     }

@@ -445,7 +445,7 @@ public class RandoopCoreUtil {
             roots.addAll(Arrays.asList(findPackageFragmentRoots(referencedJavaProject, cpe)));
           }
         }
-        return (IPackageFragmentRoot[]) roots.toArray(new IPackageFragmentRoot[roots
+        return roots.toArray(new IPackageFragmentRoot[roots
             .size()]);
       }
       return null;

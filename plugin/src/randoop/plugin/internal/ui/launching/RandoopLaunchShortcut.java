@@ -32,13 +32,13 @@ import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.window.Window;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.osgi.util.NLS;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.actions.ImportResourcesAction;
 import org.eclipse.ui.progress.IProgressService;
 
 import randoop.plugin.RandoopPlugin;
@@ -172,7 +172,7 @@ public class RandoopLaunchShortcut implements ILaunchShortcut {
             types.add((IType) element);
             selectedTypes.add((IType) element);
 
-            selectedMethodsByDeclaringTypes.remove((IType) element);
+            selectedMethodsByDeclaringTypes.remove(element);
             elementSearchMonitor.worked(1);
             break;
           case IJavaElement.METHOD:
@@ -251,7 +251,7 @@ public class RandoopLaunchShortcut implements ILaunchShortcut {
             config);
         PlatformUI.getWorkbench().getDisplay().syncExec(runner);
 
-        if (runner.getReturnCode() == WizardDialog.OK) {
+        if (runner.getReturnCode() == Window.OK) {
           RandoopArgumentCollector args = new RandoopArgumentCollector(config,
               getWorkspaceRoot());
           

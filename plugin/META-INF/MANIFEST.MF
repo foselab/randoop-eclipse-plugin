@@ -1,14 +1,15 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
+Automatic-Module-Name: randoop
 Bundle-Name: Randoop
 Bundle-SymbolicName: randoop; singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: randoop.plugin.RandoopPlugin
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ClassPath: .,
  ../bin,
- lib/randoop-4.2.2.jar,
+ lib/randoop-4.3.2.jar,
  lib/options-1.0.4.jar,
  lib/plume-util-1.1.4.jar
 Require-Bundle: org.eclipse.debug.ui;bundle-version="3.5.0",
@@ -21,3 +22,4 @@ Require-Bundle: org.eclipse.debug.ui;bundle-version="3.5.0",
  org.eclipse.ltk.core.refactoring;bundle-version="3.5.0",
  org.eclipse.ui.ide;bundle-version="3.5.0"
 Plugin-Class: randoop.plugin.RandoopPlugin
+Export-Package: randoop.runtime

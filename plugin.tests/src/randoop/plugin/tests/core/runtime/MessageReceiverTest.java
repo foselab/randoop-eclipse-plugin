@@ -30,42 +30,42 @@ public class MessageReceiverTest {
   static IJavaProject javaProject;
   
   private static class TestMessageListener implements IMessageListener {
-    IMessage fStartMessage = null;
-    boolean fReceivedLast = false;
-    double fLastPercentDone = 0.0;
-    
-    @Override
-    public void handleMessage(IMessage m) {
-      System.out.println(m);
-      if (m instanceof RandoopStarted) {
-    	  fStartMessage = m;
-      } else if (m instanceof RandoopFinished) {
-    	  fReceivedLast = true;
- /*     } else if (m instanceof PercentDone) {
-        Assert.assertNotNull("RandoopStarted message must be received before PercentDone", fStartMessage);
-        Assert.assertFalse("PercentDone message must not be received after RandoopFinished", fReceivedLast);
-    	  
-    	  double pDone = ((PercentDone)m).getPercentDone();
-    	  Assert.assertTrue("Percent done cannot decrease", fLastPercentDone < pDone);
-    	  fLastPercentDone = pDone;*/
-      } else if (m instanceof CreatedJUnitFile) {
-        CreatedJUnitFile fileCreatedMsg = (CreatedJUnitFile) m;
-        
-        System.out.println(fileCreatedMsg.isDriver() + "  " + fileCreatedMsg.getFile());
-      } else if (m instanceof ClosingStream) {
-        Assert.fail("ClosingStream messages should not be passed to IMessageListeners");
-      }
-    }
+	    IMessage fStartMessage = null;
+	    boolean fReceivedLast = false;
+	    double fLastPercentDone = 0.0;
+	    
+	    @Override
+	    public void handleMessage(IMessage m) {
+	      System.out.println(m);
+	      if (m instanceof RandoopStarted) {
+	    	  fStartMessage = m;
+	      } else if (m instanceof RandoopFinished) {
+	    	  fReceivedLast = true;
+	 /*     } else if (m instanceof PercentDone) {
+	        Assert.assertNotNull("RandoopStarted message must be received before PercentDone", fStartMessage);
+	        Assert.assertFalse("PercentDone message must not be received after RandoopFinished", fReceivedLast);
+	    	  
+	    	  double pDone = ((PercentDone)m).getPercentDone();
+	    	  Assert.assertTrue("Percent done cannot decrease", fLastPercentDone < pDone);
+	    	  fLastPercentDone = pDone;*/
+	      } else if (m instanceof CreatedJUnitFile) {
+	        CreatedJUnitFile fileCreatedMsg = (CreatedJUnitFile) m;
+	        
+	        System.out.println(fileCreatedMsg.isDriver() + "  " + fileCreatedMsg.getFile());
+	      } else if (m instanceof ClosingStream) {
+	        Assert.fail("ClosingStream messages should not be passed to IMessageListeners");
+	      }
+	    }
 
-    @Override
-    public void handleTermination() {
-      Assert.fail("Stream terminated unexpectedly");
-    }
-    
-    public boolean receivedLast() {
-      return fReceivedLast;
-    }
-  }
+	    @Override
+	    public void handleTermination() {
+	      Assert.fail("Stream terminated unexpectedly");
+	    }
+	    
+	    public boolean receivedLast() {
+	      return fReceivedLast;
+	    }
+	  }
   
   @BeforeClass
   public static void beforeClass() throws IOException, CoreException {

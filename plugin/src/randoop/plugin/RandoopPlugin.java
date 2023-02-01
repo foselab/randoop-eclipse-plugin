@@ -50,7 +50,7 @@ public class RandoopPlugin extends AbstractUIPlugin {
 	public final static boolean USE_RANDOOP_JAR = true;
 
 	// AG
-	private static final IPath RANDOOP_JAR = new Path("lib/randoop-4.2.2.jar"); //$NON-NLS-1$
+	private static final IPath RANDOOP_JAR = new Path("lib/randoop-4.3.2.jar"); //$NON-NLS-1$
 
 	/** The shared instance */
 	private static RandoopPlugin plugin = null;

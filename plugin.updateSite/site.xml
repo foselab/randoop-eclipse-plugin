@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/randoop_0.1.0.202302011236.jar" id="randoop" version="0.1.0.202302011236">
+   <feature url="features/randoop_0.1.0.202302011356.jar" id="randoop" version="0.1.0.202302011356">
       <category name="randoop"/>
    </feature>
    <category-def name="randoop" label="Randoop">

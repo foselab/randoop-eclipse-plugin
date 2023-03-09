@@ -1,5 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
+Automatic-Module-Name: randoop.experimental
 Bundle-Name: Randoop Experiments
 Bundle-SymbolicName: randoop.experimental;singleton:=true
 Bundle-Version: 0.1.0.qualifier

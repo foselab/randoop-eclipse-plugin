@@ -9,7 +9,7 @@
             icon="icons/eview16/randoop.png"
             category="org.eclipse.jdt.ui.java"
             class="randoop.plugin.internal.ui.views.TestGeneratorViewPart"
-            id="randoop.plugin.ui.views.TestGeneratorViewPart">
+            id="randoop.plugin.internal.ui.views.TestGeneratorViewPart">
       </view>
    </extension>
    <extension

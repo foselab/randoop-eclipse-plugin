@@ -75,60 +75,25 @@
             id="randoop.plugin.ui.launching.gentestsShortcut"
             label="Randoop Test Input"
             modes="run">
-         <configurationType
-               id="randoop.plugin.core.launching.gentestsType">
-         </configurationType>
-         <contextualLaunch>
+            <contextualLaunch>
             <enablement>
-                  <or>
-                     <with
-                           variable="selection">
-                        <and>
-                           <test
-                                 property="randoop.arraylist.isAllInSameProject">
-                           </test>
-                           <iterate
-                                 operator="or">
-                              <and>
-                                 <adapt
-                                       type="org.eclipse.jdt.core.IJavaElement">
-                                 </adapt>
-                                 <not>
-                                    <adapt
-                                          type="org.eclipse.core.resources.IProject">
-                                    </adapt>
-                                 </not>
-                                 <test
-                                       property="randoop.adaptable.isTestable">
-                                 </test>
-                              </and>
-                           </iterate>
-                        </and>
-                     </with>
-                     <with
-                        variable="selection">
-                     <count
-                           value="1">
-                     </count>
-                     <iterate
-                           ifEmpty="false"
-                           operator="and">
-                        <and>
-                           <test
-                                 args="org.eclipse.jdt.core.javanature"
-                                 forcePluginActivation="true"
-                                 property="org.eclipse.jdt.launching.hasProjectNature">
-                           </test>
-                           <test
-                                 forcePluginActivation="true"
-                                 property="org.eclipse.jdt.launching.isContainer">
-                           </test>
-                        </and>
-                     </iterate>
-                  </with>
-                  </or>
+                <with
+                    variable="selection">
+                    <count
+                        value="+">
+                    </count>
+                     <iterate operator="and">
+			            <adapt type="org.eclipse.core.resources.IFile">
+			              <test property="org.eclipse.core.resources.extension"
+			                    value="java">
+			              </test>
+			            </adapt>
+			          </iterate>                    
+                </with>
             </enablement>
-         </contextualLaunch>
+        </contextualLaunch>
+            
+            
       </shortcut>
    </extension>
    <extension

@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Automatic-Module-Name: randoop
 Bundle-Name: Randoop
-Bundle-SymbolicName: randoop; singleton:=true
+Bundle-SymbolicName: radoop.plugin;singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: randoop.plugin.RandoopPlugin
 Bundle-ActivationPolicy: lazy

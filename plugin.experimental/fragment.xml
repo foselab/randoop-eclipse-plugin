@@ -10,7 +10,7 @@
             visible="true">
          <action
                class="randoop.plugin.internal.core.autotesting.ToggleAutomatedTestingActionDelegate"
-               icon="../plugin/icons/autorun.png"
+               icon="../randoop.plugin/icons/autorun.png"
                id="randoop.plugin.toggleAutoTestRunner"
                label="Randoop Auto-Test Runner"
                style="toggle"

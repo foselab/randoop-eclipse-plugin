@@ -32,7 +32,7 @@
    <extension
          point="org.eclipse.ui.preferencePages">
       <page
-            class="randoop.plugin.internal.ui.preferences.SamplePreferencePage"
+            class="randoop.plugin.internal.ui.preferences.RandoopPreferencePage"
             id="randoop.plugin.ui.preferences.randoopPreferencePage"
             name="Randoop">
       </page>
@@ -40,7 +40,7 @@
    <extension
          point="org.eclipse.core.runtime.preferences">
       <initializer
-            class="randoop.plugin.internal.ui.preferences.RandoopPreferences	">
+            class="randoop.plugin.internal.ui.preferences.RandoopPreferences">
       </initializer>
    </extension>
    <extension

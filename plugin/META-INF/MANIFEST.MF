@@ -6,7 +6,7 @@ Bundle-SymbolicName: radoop.plugin;singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: randoop.plugin.RandoopPlugin
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-ClassPath: .,
  ../bin,
  lib/randoop-4.3.2.jar,
